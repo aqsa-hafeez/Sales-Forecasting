@@ -1,25 +1,26 @@
 # Walmart Sales Forecasting 
 
 ## Overview
-This project focuses on forecasting weekly sales for Walmart stores using historical sales data. The dataset is sourced from the [Walmart Sales Forecasting competition on Kaggle](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting). The goal is to predict future sales by leveraging time-series features, regression models, and visualizations to compare actual vs. predicted values.
+This project focuses on forecasting weekly sales for Walmart stores using the [Walmart Sales Forecast dataset](https://www.kaggle.com/datasets/aslanahmedov/walmart-sales-forecast) from Kaggle. The goal is to predict future sales by leveraging time-series features, regression models, and visualizations to compare actual vs. predicted values.
 
 Key components:
-- **Data Processing**: Merging multiple CSV files (train.csv, features.csv, stores.csv) into a single dataframe.
+- **Data Processing**: Merging multiple CSV files (`train.csv`, `features.csv`, `stores.csv`) into a single dataframe.
 - **Feature Engineering**: Creating time-based features (e.g., year, month, week, day), lag features (e.g., previous week's sales), and rolling averages.
 - **Modeling**: Training regression models like RandomForestRegressor and XGBoost for sales prediction.
 - **Evaluation**: Using metrics such as Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE).
 - **Visualization**: Plotting actual vs. predicted sales over time for validation data (2012 period).
-- **Advanced Topics**: Incorporates seasonal decomposition, moving averages, and time-aware validation using XGBoost or LightGBM (though LightGBM is mentioned in the task description, XGBoost is used in the code).
+- **Advanced Topics**: Incorporates seasonal decomposition, moving averages, and time-aware validation using XGBoost.
 
 This notebook demonstrates time-series forecasting techniques, regression modeling, and data visualization using Python libraries.
 
 ## Dataset
-- **Recommended Dataset**: Walmart Sales Forecast from Kaggle.
-- Files Used:
+- **Source**: [Walmart Sales Forecast](https://www.kaggle.com/datasets/aslanahmedov/walmart-sales-forecast) on Kaggle.
+- **Files Used**:
   - `train.csv`: Historical weekly sales data by store and department.
-  - `features.csv`: Additional features like temperature, fuel price, CPI, unemployment, and markdowns.
-  - `stores.csv`: Store details like type and size.
-- **Note**: The code assumes these files are located in the directory `C:\Users\hafee\Videos\Walmart_sales_forecast\`. Update the file paths in the notebook if your files are stored elsewhere. Download the dataset from Kaggle and place the files in the appropriate directory.
+  - `features.csv`: Additional features including temperature, fuel price, CPI, unemployment, and markdowns.
+  - `stores.csv`: Store details such as type and size.
+- **Download**: Obtain the dataset from the provided Kaggle link and extract the CSV files.
+- **Note**: The code assumes these files are located in `C:\Users\hafee\Videos\Walmart_sales_forecast\`. Update the file paths in the notebook (`code1.ipynb`) to match your local directory where the dataset is stored (e.g., adjust the `pd.read_csv()` paths in Cell 2).
 
 ## Requirements
 - Python 3.10+ (tested on 3.10.0)
@@ -38,7 +39,7 @@ This notebook demonstrates time-series forecasting techniques, regression modeli
    ```
    pip install -r requirements.txt
    ```
-3. Download the Walmart dataset from Kaggle and place the CSV files in the specified path (or update the paths in the notebook).
+3. Download the Walmart dataset from the Kaggle link and place the CSV files in a directory of your choice. Update the file paths in the notebook accordingly.
 
 ## How to Run
 1. Open the Jupyter notebook `code1.ipynb` in Jupyter Lab or Jupyter Notebook:
@@ -47,9 +48,9 @@ This notebook demonstrates time-series forecasting techniques, regression modeli
    ```
 2. Run the cells sequentially:
    - Cell 1: Import libraries.
-   - Cell 2: Load and merge data (ensure CSV files are available).
+   - Cell 2: Load and merge data (ensure CSV files are available and paths are updated).
    - Cell 3: Data preprocessing and feature engineering.
-   - Cell 4-7: Define features, split data (time-based split: train up to 2011, validate 2012).
+   - Cell 4-7: Define features, split data (time-based split: train up to 2011-12-31, validate 2012).
    - Cell 8: Train RandomForestRegressor and evaluate.
    - Cell 9: Train XGBoost and evaluate.
    - Cell 10: Plot actual vs. predicted sales (RandomForest).
